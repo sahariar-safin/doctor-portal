@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 
@@ -17,6 +17,8 @@ const customStyles = {
 Modal.setAppElement('#root')
 
 const BookingModal = ({ modalIsOpen, title }) => {
+
+
     return (
         <div>
             <Modal
@@ -26,15 +28,9 @@ const BookingModal = ({ modalIsOpen, title }) => {
             >
 
                 <div>
-                    <h1 className="">{title}</h1>
+                    <h1 className="text-center text-brand">{title}</h1>
                 </div>
-                <form>
-                    <input />
-                    <button>tab navigation</button>
-                    <button>stays</button>
-                    <button>inside</button>
-                    <button>the modal</button>
-                </form>
+                
             </Modal>
         </div>
     );
