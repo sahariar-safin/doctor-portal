@@ -54,7 +54,7 @@ const BookingAppointment = ({ date }) => {
             <h1 className="text-center text-brand">Available Appointments on {(date).toDateString()}</h1>
             <div className="container d-flex flex-wrap justify-content-center">
                 {
-                    bookingData.map(book => <BookCard book={book}></BookCard>)
+                    bookingData.map(book => <BookCard date={date} book={book}></BookCard>)
                 }
             </div>
         </div>
