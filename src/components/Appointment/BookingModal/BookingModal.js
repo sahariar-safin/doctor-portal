@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 const customStyles = {
     content: {
@@ -20,9 +21,16 @@ Modal.setAppElement('#root')
 const BookingModal = ({ modalIsOpen, title, date }) => {
     const { register, handleSubmit, setValue } = useForm();
     const onSubmit = (data) => {
-        data.appointmentDate = date;
-        data.bookingDate = new Date();
+        data.appointmentDate = (date).toDateString();
+        data.bookingDate = (new Date()).toDateString();
         console.log(data);
+        axios.post('http://localhost:5000/booking', data)
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     };
     console.log(date);
     return (
