@@ -23,7 +23,6 @@ const BookingModal = ({ modalIsOpen, title, date }) => {
     const onSubmit = (data) => {
         data.appointmentDate = (date).toDateString();
         data.bookingDate = (new Date()).toDateString();
-        console.log(data);
         axios.post('http://localhost:5000/booking', data)
             .then(function (response) {
                 console.log(response);
