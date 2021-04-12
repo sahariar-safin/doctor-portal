@@ -18,7 +18,7 @@ const customStyles = {
 
 Modal.setAppElement('#root')
 
-const BookingModal = ({ modalIsOpen, title, date }) => {
+const BookingModal = ({ modalIsOpen, title, date, closeModal }) => {
     const { register, handleSubmit, setValue } = useForm();
     const onSubmit = (data) => {
         data.appointmentDate = (date).toDateString();
@@ -26,12 +26,14 @@ const BookingModal = ({ modalIsOpen, title, date }) => {
         axios.post('http://localhost:5000/booking', data)
             .then(function (response) {
                 console.log(response);
+                if (response.data.insertedCount > 0) {
+                    closeModal();
+                }
             })
             .catch(function (error) {
                 console.log(error);
             });
     };
-    console.log(date);
     return (
         <div>
             <Modal
@@ -45,31 +47,31 @@ const BookingModal = ({ modalIsOpen, title, date }) => {
                     <p className="text-center"><small>{(date).toDateString()}</small></p>
                 </div>
                 <form className="container row g-3" onSubmit={handleSubmit(onSubmit)}>
-                    <div class="col-md-12">
-                        <label for="inputEmail4" class="form-label">Name</label>
-                        <input {...register("name")} name='name' type="name" class="form-control" id="inputEmail4" />
+                    <div className="col-md-12">
+                        <label htmlFor="inputEmail4" className="form-label">Name</label>
+                        <input {...register("name")} name='name' type="name" className="form-control" id="inputEmail4" />
                     </div>
-                    <div class="col-md-12">
-                        <label for="inputPassword4" class="form-label">Number</label>
-                        <input {...register("number")} name="number" type="phoneNumber" class="form-control" id="inputPassword4" />
+                    <div className="col-md-12">
+                        <label htmlFor="inputPassword4" className="form-label">Number</label>
+                        <input {...register("number")} name="number" type="phoneNumber" className="form-control" id="inputPassword4" />
                     </div>
-                    <div class="col-md-4">
-                        <label for="inputCity" class="form-label">Age</label>
-                        <input {...register("age")} name='age' type="text" class="form-control" id="inputCity" />
+                    <div className="col-md-4">
+                        <label htmlFor="inputCity" className="form-label">Age</label>
+                        <input {...register("age")} name='age' type="text" className="form-control" id="inputCity" />
                     </div>
-                    <div class="col-md-4">
-                        <label for="inputState" class="form-label">Gender</label>
-                        <select {...register("gender")} name='gender' id="inputState" class="form-select">
+                    <div className="col-md-4">
+                        <label htmlFor="inputState" className="form-label">Gender</label>
+                        <select {...register("gender")} name='gender' id="inputState" className="form-select">
                             <option>Male</option>
                             <option>Female</option>
                         </select>
                     </div>
-                    <div class="col-md-4">
-                        <label for="inputZip" class="form-label">Weight</label>
-                        <input {...register("weight")} name="weight" type="text" class="form-control" id="inputZip" />
+                    <div className="col-md-4">
+                        <label htmlFor="inputZip" className="form-label">Weight</label>
+                        <input {...register("weight")} name="weight" type="text" className="form-control" id="inputZip" />
                     </div>
-                    <div class="col-12">
-                        <button type="submit" class="btn btn-brand">Book Appointment</button>
+                    <div className="col-md-5">
+                        <button type="submit" className="btn btn-brand">Book Appointment</button>
                     </div>
                 </form>
             </Modal>
