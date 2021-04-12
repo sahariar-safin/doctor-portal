@@ -70,8 +70,11 @@ const BookingModal = ({ modalIsOpen, title, date, closeModal }) => {
                         <label htmlFor="inputZip" className="form-label">Weight</label>
                         <input {...register("weight")} name="weight" type="text" className="form-control" id="inputZip" />
                     </div>
-                    <div className="col-md-5">
+                    <div className="col-md-10 mt-2">
                         <button type="submit" className="btn btn-brand">Book Appointment</button>
+                    </div>
+                    <div className="col-md-2 mt-2">
+                        <button className="btn btn-brand" onClick={closeModal}>Close</button>
                     </div>
                 </form>
             </Modal>
