@@ -1,4 +1,6 @@
 import React from 'react';
+import BookCard from '../BookCard/BookCard';
+
 const bookingData = [
     {
         _id: '5e8df50be6e8231764dc23de',
@@ -45,11 +47,16 @@ const bookingData = [
 ]
 
 const BookingAppointment = ({ date }) => {
-    console.log(date);
+
+
     return (
         <div>
             <h1 className="text-center text-brand">Available Appointments on {(date).toDateString()}</h1>
-            
+            <div className="container d-flex flex-wrap justify-content-center">
+                {
+                    bookingData.map(book => <BookCard book={book}></BookCard>)
+                }
+            </div>
         </div>
     );
 };
