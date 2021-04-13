@@ -35,6 +35,10 @@ const AddDoctor = () => {
                 <input {...register("name")} type="Name" class="form-control" id="inputName" />
             </div>
             <div class="col-md-12">
+                <label for="inputEmail" class="form-label">Email</label>
+                <input {...register("email")} type="email" class="form-control" id="inputEmail" />
+            </div>
+            <div class="col-md-12">
                 <label for="inputNumber" class="form-label">Number</label>
                 <input {...register("phoneNumber")} type="number" class="form-control" id="inputNumber" />
             </div>
