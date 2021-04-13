@@ -13,10 +13,10 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/appointment">
+        <Route path="/appointment">
           <Appointment></Appointment>
         </Route>
-        <Route exact path="/dashboard/appointment">
+        <Route path="/dashboard">
           <Dashboard></Dashboard>
         </Route>
         <Route exact path="/">

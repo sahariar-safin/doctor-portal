@@ -25,7 +25,7 @@ const Appointments = ({ date }) => {
                         <th scope="col">#</th>
                         <th scope="col">Name</th>
                         <th scope="col">Number</th>
-                        <th scope="col">Booking Date</th>
+                        <th scope="col">Service</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,7 +35,7 @@ const Appointments = ({ date }) => {
                                 <th scope="row">{index + 1}</th>
                                 <td>{appointment.name}</td>
                                 <td>{appointment.number}</td>
-                                <td>{appointment.bookingDate}</td>
+                                <td>{appointment.subject}</td>
                             </tr>)
                     }
                 </tbody>
