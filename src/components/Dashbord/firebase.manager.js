@@ -27,3 +27,12 @@ export const GoogleSignIn = () => {
             // ...
         });
 }
+
+export const JWTToken = () => {
+    return firebase.auth().currentUser.getIdToken(/* forceRefresh */ true)
+        .then(function (idToken) {
+            return idToken;
+        }).catch(function (error) {
+            // Handle error
+        });
+}

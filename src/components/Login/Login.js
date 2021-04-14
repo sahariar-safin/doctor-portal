@@ -3,7 +3,7 @@ import { useHistory, useLocation } from 'react-router';
 import { UserContext } from '../../App';
 import firebaseConfig from '../../firebase.config';
 import LoginBg from '../../images/Group 140.png'
-import { GoogleSignIn } from '../Dashbord/firebase.manager';
+import { GoogleSignIn, JWTToken } from '../Dashbord/firebase.manager';
 import './Login.css'
 
 
@@ -17,6 +17,10 @@ const Login = () => {
 
     const handleResponse = (res, redirect) => {
         setLoggedInUser(res);
+        JWTToken()
+            .then(res => {
+                sessionStorage.setItem('token', res);
+            })
         if (redirect) {
             history.replace(from);
         }
@@ -54,7 +58,7 @@ const Login = () => {
                 </div>
             </div>
             <div className="col-md-6">
-                <img src={LoginBg} alt="" />
+                <img className="img-fluid" src={LoginBg} alt="" />
             </div>
         </div>
     );

@@ -15,7 +15,7 @@ export const UserContext = createContext();
 
 function App() {
 
-  const [loggedInUser, setLoggedInUser] = useState([]);
+  const [loggedInUser, setLoggedInUser] = useState({ token: sessionStorage.getItem('token') } || []);
 
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
