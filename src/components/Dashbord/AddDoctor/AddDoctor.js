@@ -29,7 +29,7 @@ const AddDoctor = () => {
             });
     };
     return (
-        <form class="row g-3" onSubmit={handleSubmit(onSubmit)}>
+        <form class="row g-3 mt-4" onSubmit={handleSubmit(onSubmit)}>
             <div class="col-md-12">
                 <label for="inputName" class="form-label">Name</label>
                 <input {...register("name")} type="Name" class="form-control" id="inputName" />
