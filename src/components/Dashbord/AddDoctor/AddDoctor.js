@@ -8,7 +8,7 @@ const AddDoctor = () => {
     const handleImage = (e) => {
         const doctorData = new FormData();
         doctorData.append("image", e.target.files[0])
-        axios.post('http://localhost:5000/uploadDoctorImage', doctorData)
+        axios.post('https://calm-woodland-69462.herokuapp.com/uploadDoctorImage', doctorData)
             .then(function (response) {
                 setImage(response.data)
                 console.log(response);
@@ -20,7 +20,7 @@ const AddDoctor = () => {
     const onSubmit = data => {
         data.image = image;
         console.log(data);
-        axios.post('http://localhost:5000/addDoctor', data)
+        axios.post('https://calm-woodland-69462.herokuapp.com/addDoctor', data)
             .then(function (response) {
                 console.log(response);
             })

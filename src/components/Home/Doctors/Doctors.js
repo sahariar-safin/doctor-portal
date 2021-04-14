@@ -5,7 +5,7 @@ const Doctors = () => {
     const [doctors, setDoctors] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:5000/doctors')
+        axios.get('https://calm-woodland-69462.herokuapp.com/doctors')
             .then(function (response) {
                 setDoctors(response.data);
                 console.log(response);

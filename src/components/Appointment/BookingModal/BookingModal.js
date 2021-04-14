@@ -24,7 +24,7 @@ const BookingModal = ({ modalIsOpen, title, date, closeModal }) => {
         data.appointmentDate = (date).toDateString();
         data.bookingDate = (new Date()).toDateString();
         data.subject = title;
-        axios.post('http://localhost:5000/booking', data)
+        axios.post('https://calm-woodland-69462.herokuapp.com/booking', data)
             .then(function (response) {
                 console.log(response);
                 if (response.data.insertedCount > 0) {

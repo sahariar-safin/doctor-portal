@@ -5,7 +5,7 @@ const Appointments = ({ date }) => {
     const [appointments, setAppointments] = useState([]);
 
     useEffect(() => {
-        axios.post('http://localhost:5000/appointment', { date })
+        axios.post('https://calm-woodland-69462.herokuapp.com/appointment', { date })
             .then(function (response) {
                 console.log(response.data);
                 setAppointments(response.data)
